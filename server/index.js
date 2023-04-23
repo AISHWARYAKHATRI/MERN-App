@@ -1,8 +1,9 @@
 import express from 'express';
-;import bodyParser from "body-parser";
+import bodyParser from "body-parser";
 import cors from 'cors';
 import mongoose from "mongoose";
 import postRoutes from './routes/posts.js'
+import userRoutes from './routes/users.js'
 import dotenv from 'dotenv'
 
 const app = express();
@@ -15,6 +16,7 @@ app.use(cors());
 
 // middleware. Starting point for all the routes. Every route inside of the post routes is going to start with /posts 
 app.use('/posts', postRoutes);
+app.use('/user', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
