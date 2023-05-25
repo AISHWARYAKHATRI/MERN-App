@@ -33,6 +33,7 @@ const handleKeyPress = (e) => {
 }
 
 const searchPost = () => {
+  if(!search && !tags) return;
   if(search.trim() || tags) {
     // dispatch -> fetch search post
     dispatch(getPostsBySearch({ search, tags: tags.join(',') }));
@@ -54,13 +55,13 @@ return (
     </Grid>
     <Grid item xs={12} sm={6} md={3}>
       <AppBar className={classes.appBarSearch} position="static" color="inherit">
-        <TextField name="search" variant="outlined" label="Search Art" onKeyPress={handleKeyPress} fullWidth value={search} onChange={(e) => {setSearch(e.target.value)}} />
+        <TextField name="search" variant="outlined" label="Search for Art..." onKeyPress={handleKeyPress} fullWidth value={search} onChange={(e) => {setSearch(e.target.value)}} />
         <ChipInput 
       style={{ margin: '10px 0' }}
       value={tags}
       onAdd={handleAdd}
       onDelete={handleDelete}
-      label="Search Tags"
+      label="Search by tags..."
       variant='outlined'
       />
       <Button onClick={searchPost} variant="contained" className={classes.searchButton} color="primary">Search</Button>

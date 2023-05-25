@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
 
 import useStyles from './styles'
-import brush from '../../images/brush.jpg'
+import logo from '../../images/logo.png'
 
 const Navbar = () => {
      
@@ -34,20 +34,22 @@ const Navbar = () => {
   }
 
   return (
-    <AppBar className={classes.appBar} position="static" color="inherit">
+    <AppBar className={classes.appBar} position="sticky">
         <div className={classes.brandContainer}>
+            <img className={classes.image} src={logo} alt="memories" height="90" />
             <Typography component={Link} to='/' className={classes.heading} variant="h2" align="center">Artsy</Typography>
-            <img className={classes.image} src={brush} alt="memories" height="90" />
         </div>
         <Toolbar className={classes.toolbar}>
             { user ? (
                 <div className={classes.profile}>
                    <Avatar className={classes.purple} alt={user.res.name} src={user.res.imageUrl}>{user.res.name.charAt(0)}</Avatar> 
-                   <Typography className={classes.userName} variant="h6">{user.res.name}</Typography>
+                   <Typography className={classes.userName} variant="h6" style={{ color: 'black' }}>{user.res.name}</Typography>
                    <Button variant="contained" className={classes.logout} color="secondary" onClick={logout}>Logout</Button>
                 </div>
             ) : (
+              <>
                 <Button component={Link} to='/auth' variant="contained" color="primary">Sign In</Button>
+              </>
             )}
         </Toolbar>
     </AppBar>

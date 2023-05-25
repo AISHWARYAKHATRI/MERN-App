@@ -12,7 +12,7 @@ const App = () => {
   const user = JSON.parse(localStorage.getItem('profile'));
   return (
     <BrowserRouter>
-    <Container maxwidth="xl">
+    <Container maxwidth="xl" className='container'>
       <Navbar />
       <Switch>
         <Route path='/' exact component={() => <Redirect to="/posts" />} />

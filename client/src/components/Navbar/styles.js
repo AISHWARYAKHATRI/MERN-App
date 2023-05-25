@@ -18,13 +18,14 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    padding: '10px 50px',
+    boxShadow: 'none',
+    backgroundColor: '#f7f8fc',
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column',
     },
   },
   heading: {
-    color: '#F539BD',
+    color: '#e91e63',
     textDecoration: 'none',
     // fontSize: '2em',
     fontWeight: 300,
